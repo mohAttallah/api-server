@@ -1,8 +1,8 @@
 # api-server
 # API Routes
 
-##Deployment URL
-
+## Deployment URL
+[api-server](https://api-server-uqag.onrender.com)
 
 ## Cars
 
@@ -54,7 +54,7 @@
 
 - **Route:** DELETE /cars/:id
 - **Description:** Deletes a specific car by its ID.
-- **Response:** No response body.
+- **Response:** deleted.
 
 
 ## Schools
@@ -89,4 +89,4 @@
 
 - **Route:** DELETE /schools/:id
 - **Description:** Deletes a specific school by its ID.
-- **Response:** No response body.
+- **Response:** deleted.
