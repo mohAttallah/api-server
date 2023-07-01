@@ -4,89 +4,177 @@
 ## Deployment URL
 [api-server](https://api-server-uqag.onrender.com)
 
-## Cars
+## School
+```
+Model School has a relationship one to many with Model Student
+```
 
-### Create a Car
+### Create a School
 
-- **Route:** POST /cars
-- **Description:** Creates a new car.
-- **Request Body:** JSON object containing car details ( brand,model,year).
+- **Route:** POST /School
+- **Description:** Creates a new School.
+- **Request Body:** JSON object containing School details ( brand,model,year).
 ```Json
 {
-   "brand": "Tyota",
-   "model":"Prius" ,
-   "year":2019
-
+    "name":"Genius",
+    "foundedYear":1970,
+    "studentCount":300
 }
 ```
-- **Response:** JSON object representing the created car.
+- **Response:** JSON object representing the created School.
 
-### Get All Cars
+### Get All School
 
 - **Route:** GET /cars
 - **Description:** Retrieves all cars.
 - **Response:** JSON array containing car objects.
 
-### Get a Specific Car
+### Get a Specific School
 
-- **Route:** GET /cars/:id
+- **Route:** GET /school/:id
 - **Description:** Retrieves a specific car by its ID.
 - **Response:** JSON object representing the car.
 
-### Update a Specific Car
+### Update a Specific School
 
-- **Route:** PUT /cars/:id
-- **Description:** Updates a specific car by its ID.
-- **Request Body:** JSON object containing updated car details ( brand,model, year).
+- **Route:** PUT /school/:id
+- **Description:** Updates a specific school by its ID.
+- **Request Body:** JSON object containing updated school details 
 
-```JSON
-{
-   "name": "School Name",
-   "foundedYear":"2013" ,
-    "studentCount":200
 
-}
-```
 
 - **Response:** JSON object representing the updated car.
 
-### Delete a Specific Car
+### Delete a Specific School
 
 - **Route:** DELETE /cars/:id
 - **Description:** Deletes a specific car by its ID.
 - **Response:** deleted.
 
 
-## Schools
+## Student
 
 ### Create a School
 
-- **Route:** POST /schools
-- **Description:** Creates a new school.
-- **Request Body:** JSON object containing school details (name, foundedYear, studentCount).
+- **Route:** POST / student
+- **Description:** Creates a new  record student.
+- **Request Body:** JSON object containing studentdetails (name, age, schoolId (foreign key)).
+```
+{
+    "name": "Ahmad",
+    "age":22,
+    "schoolId":1
+}
+```
 - **Response:** JSON object representing the created school.
 
-### Get All Schools
+### Get All student
 
-- **Route:** GET /schools
-- **Description:** Retrieves all schools.
-- **Response:** JSON array containing school objects.
+- **Route:** GET /student
+- **Description:** Retrieves all student.
+- **Response:** JSON array containing student objects.
 
-### Get a Specific School
+### Get a Specific student
 
-- **Route:** GET /schools/:id
+- **Route:** GET /student/:id
 - **Description:** Retrieves a specific school by its ID.
 - **Response:** JSON object representing the school.
 
-### Update a Specific School
+### Update a Specific student
+- **Route:** PUT /student/:id
+- **Description:** Updates a specific student by its ID.
+- **Request Body:** JSON object containing updated student details (name, foundedYear, studentCount).
+- **Response:** JSON object representing the updated student.
 
-- **Route:** PUT /schools/:id
-- **Description:** Updates a specific school by its ID.
-- **Request Body:** JSON object containing updated school details (name, foundedYear, studentCount).
-- **Response:** JSON object representing the updated school.
+###  Delete a Specific student
 
-### Delete a Specific School
-
-- **Route:** DELETE /schools/:id
-- **Description:** Deletes a specific school by its ID.
+- **Route:** DELETE /student/:id
+- **Description:** Deletes a specific student by its ID.
 - **Response:** deleted.
+
+## Author
+```
+ Author Model has a relationship one to many with  book Model
+```
+
+
+### Create an Author
+
+- **Route:** `POST /author`
+- **Description:** Creates a new record author.
+- **Request Body:** JSON object containing author details (`name`, `age`, `bio`).
+```json
+{
+  "name": "gorgie",
+  "age": 53,
+  "bio": "Good Writer"
+}
+```
+
+Response: JSON object representing the created author.
+
+### Get All Authors
+
+- **Route:**  GET /author
+- **Description:** Retrieves all authors.
+- **Request Body:** JSON array containing author objects.
+
+### Get a Specific Author
+
+- **Route:**  GET /author/:id
+- **Description:**  Retrieves a specific author by their ID.
+- **Request Body:**  JSON object representing the author.
+
+### Update a Specific Author
+- **Route:**  PUT /author/:id
+- **Description:** Updates a specific author by their ID.
+- **Request Body:**  JSON object containing updated author details (name, age, bio).
+Response: JSON object representing the updated author.
+
+### Delete a Specific Author
+- **Route:** DELETE /author/:id
+- **Description:** Deletes a specific author by their ID.
+Response: deleted.
+
+
+
+## Book 
+
+## Create a Book
+
+- **Route:** `POST /book`
+- **Description:** Creates a new record book.
+- **Request Body:** JSON object containing book details (`title`, `publicationYear`, `genre`, `authorId` (foreign key)).
+
+```json
+{
+    "title":"1984",
+    "publicationYear":1949,
+    "genre": "novel",
+    "authorId":1
+}
+```
+
+## Get All Books
+
+- **Route:**  GET /book
+- **Description:**  Retrieves all books.
+- **Request Body:** JSON array containing book objects.
+
+
+## Get a Specific Book
+- **Route:**  GET /book/:id
+- **Description:** Retrieves a specific book by its ID.
+Response: JSON object representing the book.
+
+
+## Update a Specific Book
+- **Route:**  PUT /book/:id
+- **Description:** Updates a specific book by its ID.
+- **Request Body:** JSON object containing updated book details 
+Response: JSON object representing the updated book.
+
+## Delete a Specific Book
+- **Route:** DELETE /book/:id
+- **Description:** Deletes a specific book by its ID.
+Response: deleted.

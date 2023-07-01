@@ -6,22 +6,20 @@ const errorHandler = require('./error-handlers/500');
 const notFoundHandler = require('./error-handlers/404');
 
 
-const cars = require('./models/cars.model');
-const carsRouter = require('./routes/cars');
 
 
-const school = require('./models/school.model');
+const bookRouter = require('./routes/book');
+const authorRouter = require('./routes/author');
+
 const schoolRouter = require('./routes/school');
+const studentRouter = require('./routes/student');
+
 app.use(express.json());
 app.use(cors());
-
-
-app.use(carsRouter);
+app.use(bookRouter);
+app.use(authorRouter);
 app.use(schoolRouter);
-
-
-
-
+app.use(studentRouter);
 
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -45,10 +43,8 @@ function start(port) {
 
 
 module.exports = {
-
     start,
     app
-
 }
 
 
